@@ -10,9 +10,46 @@
   <div class="container">
     <h1>나만의 위치 안내 서비스</h1>
     <p class="description">내 주변의 장소를 쉽고 빠르게 찾아보세요.</p>
-    <div class="notice">
-      <p>🗺️ 지도는 배포 후 연결합니다</p>
-    </div>
+
+    <!-- Kakao Map will be rendered inside this div -->
+    <div id="map"></div>
   </div>
+
+  <!-- Load Kakao Maps JavaScript SDK -->
+  <!-- Replace YOUR_KAKAO_JAVASCRIPT_KEY with your actual Kakao JavaScript API key -->
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_KAKAO_JAVASCRIPT_KEY"></script>
+
+  <script>
+    // Seoul City Hall coordinates (latitude, longitude)
+    var SEOUL_CITY_HALL_LAT = 37.5662952;
+    var SEOUL_CITY_HALL_LNG = 126.9779451;
+
+    // Create a LatLng object for the map center
+    var centerPosition = new kakao.maps.LatLng(SEOUL_CITY_HALL_LAT, SEOUL_CITY_HALL_LNG);
+
+    // Initialize the map inside the #map div
+    var mapContainer = document.getElementById('map');
+    var mapOptions = {
+      center: centerPosition, // Map center coordinates
+      level: 3                // Zoom level (1=closest, 14=farthest)
+    };
+    var map = new kakao.maps.Map(mapContainer, mapOptions);
+
+    // Place a marker at Seoul City Hall
+    var marker = new kakao.maps.Marker({
+      position: centerPosition,
+      map: map
+    });
+
+    // Create an info window that appears when the marker is clicked
+    var infowindow = new kakao.maps.InfoWindow({
+      content: '<div style="padding:8px 12px;font-size:14px;white-space:nowrap;">오늘의 위치 안내 장소</div>'
+    });
+
+    // Open the info window when the marker is clicked
+    kakao.maps.event.addListener(marker, 'click', function () {
+      infowindow.open(map, marker);
+    });
+  </script>
 </body>
 </html>

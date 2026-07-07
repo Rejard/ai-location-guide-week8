@@ -15,35 +15,29 @@ body {
 
 .container {
   text-align: center;
-  padding: 60px 40px;
+  padding: 40px 40px 48px;
   background: #ffffff;
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  max-width: 600px;
-  width: 90%;
+  max-width: 800px;
+  width: 92%;
 }
 
 h1 {
   font-size: 2.4rem;
   color: #1a1a2e;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .description {
   font-size: 1.3rem;
   color: #555;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
-.notice {
-  background: #e8f4fd;
-  border: 2px dashed #90caf9;
-  border-radius: 12px;
-  padding: 24px;
-}
-
-.notice p {
-  font-size: 1.2rem;
-  color: #1565c0;
-  font-weight: 600;
+#map {
+  width: 100%;
+  height: 480px;
+  border-radius: 14px;
+  border: 2px solid #e0e0e0;
 }

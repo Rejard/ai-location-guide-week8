@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공공데이터포털 API 인증 가이드</title>
+  <link rel="stylesheet" href="/guide.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🗂️ 공공데이터포털 API 인증 가이드</h1>
+    <p class="subtitle">소상공인 상가(상권)정보 API를 발급받는 과정을 단계별로 안내합니다.</p>
+
+    <div class="step">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <h2>공공데이터포털 접속 및 회원가입</h2>
+        <p><a href="https://www.data.go.kr" target="_blank" rel="noopener">https://www.data.go.kr</a> 에 접속합니다.</p>
+        <ol>
+          <li>우측 상단 <strong>회원가입</strong> 클릭</li>
+          <li>본인인증 진행 (휴대폰 또는 아이핀)</li>
+          <li>회원 유형은 <strong>일반회원</strong> 선택</li>
+          <li>아이디, 비밀번호, 이메일 입력 후 가입 완료</li>
+        </ol>
+        <div class="tip">
+          <strong>💡 팁:</strong> 이미 계정이 있다면 바로 로그인하세요.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <h2>로그인 후 API 검색</h2>
+        <ol>
+          <li>로그인 후 상단 <strong>검색창</strong>에 아래 키워드를 입력합니다:</li>
+        </ol>
+        <div class="code-box">소상공인시장진흥공단_상가(상권)정보</div>
+        <ol start="2">
+          <li>검색 결과에서 <strong>소상공인시장진흥공단_상가(상권)정보</strong>를 클릭합니다.</li>
+          <li>제공 기관이 <strong>소상공인시장진흥공단</strong>인지 확인합니다.</li>
+        </ol>
+        <div class="warning">
+          <strong>⚠️ 주의:</strong> 비슷한 이름의 데이터가 여러 개 있을 수 있습니다. 반드시 <strong>"오픈API"</strong> 탭이 있는 항목을 선택하세요.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <h2>오픈API 활용 신청</h2>
+        <ol>
+          <li>데이터 상세 페이지에서 <strong>오픈API</strong> 탭을 클릭합니다.</li>
+          <li><strong>활용신청</strong> 버튼을 클릭합니다.</li>
+          <li>신청 양식을 작성합니다:</li>
+        </ol>
+        <table>
+          <tr>
+            <th>항목</th>
+            <th>입력 내용</th>
+          </tr>
+          <tr>
+            <td>활용 목적</td>
+            <td>"학습 및 교육 목적으로 카페 위치 정보를 지도에 표시"</td>
+          </tr>
+          <tr>
+            <td>서비스 유형</td>
+            <td>웹 서비스 개발</td>
+          </tr>
+          <tr>
+            <td>서비스 URL</td>
+            <td>배포 URL 입력 (예: https://my-app.onrender.com)</td>
+          </tr>
+          <tr>
+            <td>동의 항목</td>
+            <td>모두 체크</td>
+          </tr>
+        </table>
+        <ol start="4">
+          <li><strong>신청</strong> 버튼을 클릭합니다.</li>
+        </ol>
+        <div class="tip">
+          <strong>💡 팁:</strong> 승인은 보통 <strong>자동 승인</strong>되어 1~2시간 내에 완료됩니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">4</div>
+      <div class="step-content">
+        <h2>API 인증키 확인</h2>
+        <p>승인이 완료되면 인증키를 확인할 수 있습니다.</p>
+        <ol>
+          <li>상단 메뉴 <strong>마이페이지</strong> 클릭</li>
+          <li><strong>데이터 활용</strong> → <strong>활용신청 현황</strong> 클릭</li>
+          <li>신청한 API 항목을 찾아 클릭</li>
+          <li><strong>일반 인증키 (Encoding)</strong>를 복사합니다</li>
+        </ol>
+        <div class="key-example">
+          <p class="key-label">일반 인증키 (Encoding) 예시:</p>
+          <div class="code-box">a1B2c3D4e5F6g7H8i9J0k1L2m3N4o5P6q7R8s9T0...</div>
+        </div>
+        <div class="warning">
+          <strong>⚠️ 주의:</strong> 인증키는 <strong>Encoding</strong>된 키와 <strong>Decoding</strong>된 키 두 가지가 있습니다. <strong>Encoding 키</strong>를 사용하세요.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">5</div>
+      <div class="step-content">
+        <h2>API 호출 테스트</h2>
+        <p>인증키가 정상 작동하는지 브라우저에서 바로 테스트할 수 있습니다.</p>
+        <p>아래 URL에서 <strong>YOUR_API_KEY</strong> 부분을 본인의 인증키로 교체한 후, 브라우저 주소창에 붙여넣기 하세요:</p>
+        <div class="code-box url-box">https://apis.data.go.kr/B553077/api/open/sdsc2/storeListInDong?serviceKey=<span class="highlight">YOUR_API_KEY</span>&divId=indsSclsCd&key=I212&pageNo=1&numOfRows=5&type=json</div>
+        <p class="param-desc">위 URL은 업종코드 <strong>I212 (커피점/카페)</strong>로 카페 데이터를 5개 조회하는 예시입니다.</p>
+        <div class="tip">
+          <strong>💡 성공 시:</strong> JSON 형태의 카페 데이터(상호명, 주소, 좌표 등)가 브라우저에 표시됩니다.
+        </div>
+        <div class="warning">
+          <strong>⚠️ 에러 시:</strong> "SERVICE_KEY_IS_NOT_REGISTERED_ERROR"가 뜨면 아직 승인 대기 중입니다. 1~2시간 후 다시 시도하세요.
+        </div>
+      </div>
+    </div>
+
+    <div class="step complete-step">
+      <div class="step-number">✓</div>
+      <div class="step-content">
+        <h2>완료!</h2>
+        <p>API 인증키 발급이 완료되었습니다. 이제 이 인증키를 사용하여 카페 데이터를 카카오맵에 표시할 수 있습니다.</p>
+        <div class="checklist">
+          <h3>최종 체크리스트</h3>
+          <ul>
+            <li>공공데이터포털 회원가입 완료</li>
+            <li>소상공인 상가(상권)정보 API 활용 신청 완료</li>
+            <li>승인 완료 확인</li>
+            <li>일반 인증키 (Encoding) 복사 완료</li>
+            <li>브라우저에서 API 호출 테스트 성공</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>나만의 위치 안내 서비스 — 8주차 실습 가이드</p>
+    </footer>
+  </div>
+</body>
+</html>

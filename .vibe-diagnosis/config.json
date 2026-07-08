@@ -1,0 +1,6 @@
+{
+  "projectName": "ai-location-guide-week8",
+  "diagnosticsDir": "diagnostics",
+  "errorPatternsDir": "error-patterns",
+  "layers": ["TASK", "FUNCTION", "SYSTEM"]
+}
